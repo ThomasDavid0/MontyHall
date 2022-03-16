@@ -123,12 +123,12 @@ def many_games(count, option):
     for _ in range(count):
         res.append(
             getattr(
-                Game.random().choose(randrange(3)
-            ),option)()
+                Game.random().choose(randrange(3)),option)()
         )
     win_count = sum(res)
     print(f"we have {win_count} winners, {100*win_count/count}%")
     return win_count
+
 
 
 if __name__ == "__main__":
