@@ -129,6 +129,26 @@ def many_games(count, option):
     print(f"we have {win_count} winners, {100*win_count/count}%")
     return win_count
 
+def one_game():
+    #create the game with the prize in a random place
+    game = Game.random()
+
+    #choose based on user selection
+    print("select a door (0, 1 or 2)")
+    game = game.choose(int(input()))
+
+    print("do you want to switch? (y)")
+
+    result = game.switch() if input() == 'y' else game.stay()
+
+    if result:
+        print("you win")
+    else:
+        print("you loose")
+
+    
+
+
 
 
 if __name__ == "__main__":
@@ -136,8 +156,11 @@ if __name__ == "__main__":
     print("how many times do you want to test?")
     count = int(input())
 
-    res_switch = many_games(count, "switch")
-    res_stay = many_games(count, "stay")
+    if count==1:
+        one_game()
+    else:
+        res_switch = many_games(count, "switch")
+        res_stay = many_games(count, "stay")
 
-    print(f"to {'switch' if res_switch > res_stay else 'stay'} is the best option")
+        print(f"to {'switch' if res_switch > res_stay else 'stay'} is the best option")
 
