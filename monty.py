@@ -9,15 +9,15 @@ class Box:
         self.isopen = isopen
 
     def open(self):
-        """return an new box, with the door open if it is empty
+        """return a new box, identical to self but with the door open
 
         Returns:
-            Box: a copy of self with the door open if its empty
+            Box: a copy of self with the door open
         """
         return Box(self.prize, True)
     
     def choose(self):
-        """return a new box, with the chosen flag
+        """return a new box, identical to self but with chosen
 
         Returns:
             Box: a copy of self with the chosen flag==True
@@ -31,7 +31,7 @@ class Box:
             Box: a new box identical to self
         """
         return Box(self.prize, self.isopen, self.chosen)
-        
+
 class Game:
     def __init__(self, boxes: List[Box]):
         assert len(boxes) == 3
